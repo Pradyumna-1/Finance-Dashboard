@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import data from "../data/transactions.json";
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {

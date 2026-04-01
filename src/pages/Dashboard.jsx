@@ -6,12 +6,25 @@ import RoleSwitcher from "../components/RoleSwitcher";
 
 export default function Dashboard() {
   return (
-    <div className="p-6 space-y-6 bg-gray-100 min-h-screen">
-      <h1 className="text-2xl font-bold">Finance Dashboard</h1>
-      <RoleSwitcher />
+    <div className="min-h-screen bg-gray-100 p-6 space-y-6">
+      {/* Header */}
+      <div className="flex justify-between items-center">
+        <h1 className="text-2xl font-bold">Finance Dashboard</h1>
+        <RoleSwitcher />
+      </div>
+
+      {/* Summary */}
       <SummaryCards />
-      <Charts />
+
+      {/* Charts */}
+      <div className="grid md:grid-cols-2 gap-6">
+        <Charts />
+      </div>
+
+      {/* Transactions */}
       <Transactions />
+
+      {/* Insights */}
       <Insights />
     </div>
   );

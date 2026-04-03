@@ -19,14 +19,14 @@ export default function Transactions() {
     type: "expense",
   });
 
-  // 🔍 Filter
+  // Filter
   const filtered = transactions
     .filter((t) =>
       t.category.toLowerCase().includes(search.toLowerCase())
     )
     .filter((t) => (filter === "all" ? true : t.type === filter));
 
-  // ➕ Add transaction
+  // Add transaction
   const handleAdd = () => {
     if (!form.date || !form.amount || !form.category) return;
 
@@ -52,7 +52,7 @@ export default function Transactions() {
         Transactions
       </h2>
 
-      {/* 🔍 Filters */}
+      {/* Filters */}
       <div className="flex gap-3 mb-4">
         <input
           placeholder="Search category..."
@@ -71,7 +71,7 @@ export default function Transactions() {
         </select>
       </div>
 
-      {/* 📋 Table */}
+      {/*Table */}
       {filtered.length === 0 ? (
         <p>No transactions found</p>
       ) : (
@@ -137,7 +137,7 @@ export default function Transactions() {
         </table>
       )}
 
-      {/* ➕ Add Transaction */}
+      {/* Add Transaction */}
       {role === "admin" && (
         <div className="mt-6 space-y-3">
           <h3>Add Transaction</h3>

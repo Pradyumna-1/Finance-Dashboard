@@ -5,12 +5,12 @@ import "chart.js/auto";
 export default function Charts() {
   const { transactions, darkMode } = useApp();
 
-  // 🔹 Sort transactions
+  // Sort transactions
   const sorted = [...transactions].sort(
     (a, b) => new Date(a.date) - new Date(b.date)
   );
 
-  // 🔹 Balance Trend
+  // Balance Trend
   let balance = 0;
   const balanceData = sorted.map((t) => {
     balance += t.type === "income" ? t.amount : -t.amount;
@@ -32,7 +32,7 @@ export default function Charts() {
     ],
   };
 
-  // 🔹 Expense Breakdown
+  //Expense Breakdown
   const categoryMap = {};
 
   sorted.forEach((t) => {
@@ -59,7 +59,7 @@ export default function Charts() {
     ],
   };
 
-  // 🔹 Options
+  // Options
   const options = {
     responsive: true,
     maintainAspectRatio: false,

@@ -5,9 +5,9 @@ import Insights from "../components/Insights";
 import RoleSwitcher from "../components/RoleSwitcher";
 import { useApp } from "../context/AppContext";
 
+
 export default function Dashboard() {
   const { darkMode, setDarkMode } = useApp();
-
   return (
 <div className="min-h-screen p-6 space-y-6 bg-[var(--bg)] text-[var(--text)] transition">
       {/* Header */}
@@ -16,11 +16,14 @@ export default function Dashboard() {
 
         <div className="flex items-center gap-4">
           {/*  FIXED BUTTON */}
-          <button
-  onClick={() => setDarkMode(prev => !prev)}
-  className="px-3 py-1 rounded border "
+<button
+  onClick={() => setDarkMode(!darkMode)}
+  className="p-2 rounded-full bg-[var(--b)] border border-[var(--border)]  bg-[var(--bg)] 
+  shadow hover:scale-105 transition"
 >
-  {darkMode ? "Light Mode" : "Dark Mode"}
+  <span className="text-lg">
+    {darkMode ? "☀️" : "🌙"}
+  </span>
 </button>
 
           <RoleSwitcher />

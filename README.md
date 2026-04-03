@@ -163,11 +163,11 @@ Applies to: Cards · Tables · Inputs · Charts
  
 ## 📌 Future Enhancements
  
-- [ ] Export transactions (CSV / JSON)
-- [ ] API integration (backend support)
-- [ ] Date range filtering
-- [ ] Authentication system
-- [ ] Dashboard analytics improvements
+-  Export transactions (CSV / JSON)
+-  API integration (backend support)
+-  Date range filtering
+-  Authentication system
+-  Dashboard analytics improvements
  
 ---
  

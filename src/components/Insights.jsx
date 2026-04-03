@@ -49,8 +49,7 @@ export default function Insights() {
   )[0];
 
   return (
-    <div className="bg-white p-5 rounded-xl shadow">
-      <h2 className="text-lg font-semibold">Insights</h2>
+<div className="bg-[var(--card)] border border-[var(--border)] p-5 rounded-xl shadow">      <h2 className="text-lg font-semibold">Insights</h2>
 
       {highest ? (
         <p className="mt-2">

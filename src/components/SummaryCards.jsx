@@ -1,61 +1,44 @@
-// import { useApp } from "../context/AppContext";
-
-// export default function SummaryCards() {
-//   const { transactions } = useApp();
-
-//   const income = transactions.filter(t => t.type === "income").reduce((a,b)=>a+b.amount,0);
-//   const expense = transactions.filter(t => t.type === "expense").reduce((a,b)=>a+b.amount,0);
-//   const balance = income - expense;
-
-//   return (
-//     <div className="grid md:grid-cols-3 gap-4">
-//       <Card title="Balance" value={balance} color="text-blue-600" />
-//       <Card title="Income" value={income} color="text-green-600" />
-//       <Card title="Expenses" value={expense} color="text-red-600" />
-//     </div>
-//   );
-// }
-
-// function Card({ title, value, color }) {
-//   return (
-//     <div className="bg-white p-5 rounded-xl shadow hover:shadow-lg transition">
-//       <p className="text-gray-500">{title}</p>
-//       <h2 className={`text-2xl font-bold ${color}`}>₹{value}</h2>
-//     </div>
-//   );
-// }
-
 import { useApp } from "../context/AppContext";
 
 export default function SummaryCards() {
   const { transactions } = useApp();
 
   const income = transactions
-    .filter(t => t.type === "income")
-    .reduce((a, b) => a + b.amount, 0);
+    .filter((t) => t.type === "income")
+    .reduce((acc, t) => acc + t.amount, 0);
 
-  const expense = transactions
-    .filter(t => t.type === "expense")
-    .reduce((a, b) => a + b.amount, 0);
+  const expenses = transactions
+    .filter((t) => t.type === "expense")
+    .reduce((acc, t) => acc + t.amount, 0);
 
-  const balance = income - expense;
+  const balance = income - expenses;
 
   return (
-    <div className="grid md:grid-cols-3 gap-4">
-      <Card title="Balance" value={balance} color="text-blue-600" />
-      <Card title="Income" value={income} color="text-green-600" />
-      <Card title="Expenses" value={expense} color="text-red-600" />
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <Card title="Balance" value={balance} color="blue" />
+      <Card title="Income" value={income} color="green" />
+      <Card title="Expenses" value={expenses} color="red" />
     </div>
   );
 }
 
 function Card({ title, value, color }) {
+  const colorMap = {
+    blue: "text-blue-500",
+    green: "text-green-500",
+    red: "text-red-500",
+  };
+
   return (
-    <div className="bg-white p-5 rounded-xl shadow">
-      <p className="text-gray-500">{title}</p>
-      <h2 className={`text-xl font-bold ${color}`}>
+<div className="p-5 rounded-xl shadow border border-[var(--border)] bg-[var(--card)] transition">
+
+      <h3 className="text-sm text-gray-500 dark:text-gray-400 mb-1">
+        {title}
+      </h3>
+
+      <p className={`text-xl font-bold ${colorMap[color]}`}>
         ₹{value.toLocaleString()}
-      </h2>
+      </p>
     </div>
   );
 }
